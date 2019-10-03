@@ -60,11 +60,11 @@ public class Slingshot : MonoBehaviour {
 	
 	if (!aimingMode) return;
 
-	/*Vector3 mousePos2D = Input.mousePosition;
+	Vector3 mousePos2D = Input.mousePosition;
 	mousePos2D.z = -Camera.main.transform.position.z;
-	//Vector3 mousePos3D = Camera.main.ScreenToWorldPrint(mousePos2D);
+	Vector3 mousePos3D = Camera.main.ScreenToWorldPrint(mousePos2D);
 
-	//Vector3 mouseDelta = mousePos3D-launchPos;
+	Vector3 mouseDelta = mousePos3D-launchPos;
 
 	float maxMagnitude = this.GetComponent<SphereCollider>().radius;
 	if( mouseDelta.magnitude > maxMagnitude){
@@ -78,9 +78,12 @@ public class Slingshot : MonoBehaviour {
 		aimingMode = false;
 		projectileRigidBody.isKinematic = false;
 		projectileRigidBody.velocity = -mouseDelta * velocityMult;
+		FollowCam.POI = projectile;
 		projectile = null;
+		MissionDemolition.ShotFired();
+		ProjectileLine.S.poi = projectile;
 	}
-	*/
+	
 
 	}
 }
