@@ -7,7 +7,9 @@ using UnityEngine.UI;
 // TODO: You must set the values for the enum
 public enum GameMode
 {
-
+	idle;
+	playing;
+	levelEnd;
 
 }
 
@@ -15,20 +17,38 @@ public enum GameMode
 // TODO: implement the MissionDemolition script
 public class MissionDemolition : MonoBehaviour {
 
+	static private MissionDemolition S;
 
+	public Text uitLevel;
+	public Text uitShots;
+	public Text uitButton;
+	public Vector3 castlePos;
+	public GameObject[] castles;
 
-
+	public int level;
+	public int levelMax;
+	public int shotsTaken;
+	public GameObject castle;
+	public GameMode mode = GameMode.idle;
+	public string showing = "Show Slingshot";
 
 
 	// Use this for initialization
 	void Start ()
     {
+		S = this;
 
+		level = 0;
+		levelMax = castles.Length;
+		StartLevel();
     }
 	
 	void StartLevel()
     {
-
+		
+		if(castle != null){
+			Destroy (castle);
+		}
  
     }
 
